@@ -5,15 +5,32 @@
 <label class="error-message">{{ errMessage }}</label>
 
 <!-- To add notes -->
-
-
-
-
-
+<mat-expansion-panel class="keep-c-note-taker-expansion-panel">
+    <mat-expansion-panel-header>
+        <mat-panel-title>
+            Take a Note
+        </mat-panel-title>
+    </mat-expansion-panel-header>
+    <div class="keep-c-note-taker-form">
+        <mat-form-field>
+            <input matInput [(ngModel)]="note.title"
+                type="text" placeholder="Title">
+        </mat-form-field>
+        <mat-form-field>
+            <textarea matInput [(ngModel)]="note.text" placeholder="Text"></textarea>
+        </mat-form-field>
+        <div class="keep-c-done-btn-wrapper">
+            <button mat-button (click)="takeNote()">Done</button>
+        </div>
+    </div>
+</mat-expansion-panel>
 
 <!-- Load and display the collection of notes from server as Material Cards with card title set to note title and card content set to note text  -->
-
-
-
-
-
+<div class="keep-note-container">
+    <mat-card *ngFor="let note of notes">
+        <mat-card-header>
+            <mat-card-title>{{note.title}}</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>{{note.text}}</mat-card-content>
+    </mat-card>
+</div>

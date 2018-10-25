@@ -4,6 +4,16 @@
       "id": 1,
       "title": "Read Angular 5 blog",
       "text": "Shall do at 6 pm"
+    },
+    {
+      "title": "angular assignment# 1",
+      "text": "this is angular assignment - keep app",
+      "id": 2
+    },
+    {
+      "title": "angular build",
+      "text": "hosted from static server",
+      "id": 3
     }
   ]
 }
