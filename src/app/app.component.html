@@ -13,11 +13,11 @@
     </mat-expansion-panel-header>
     <div class="keep-c-note-taker-form">
         <mat-form-field>
-            <input matInput [(ngModel)]="note.title"
+            <input matInput [(ngModel)]="note.title" name="title"
                 type="text" placeholder="Title">
         </mat-form-field>
         <mat-form-field>
-            <textarea matInput [(ngModel)]="note.text" placeholder="Text"></textarea>
+            <textarea matInput [(ngModel)]="note.text" name="text" placeholder="Text"></textarea>
         </mat-form-field>
         <div class="keep-c-done-btn-wrapper">
             <button mat-button (click)="takeNote()">Done</button>
