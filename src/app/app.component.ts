@@ -20,14 +20,16 @@ export class AppComponent {
     // load all notes on app load
     this.notesService.getNotes().subscribe(
       data => this.notes = data,
-      err => console.log(err)
+      err => {
+        this.errMessage = err.message;
+      }
     );
   }
   // submit event - posting note data
   takeNote() {
     // check input field length to proceed with saving
     if (this.note.text.length === 0 || this.note.title.length === 0) {
-      this.errMessage = 'Both the fields are required';
+      this.errMessage = 'Title and Text both are required fields';
     } else {
       // optimistic load - update UI first, later save to DB
       this.notes.push(this.note);
@@ -38,7 +40,7 @@ export class AppComponent {
             note => note.title === this.note.title
           );
           this.notes.splice(index, 1);
-          this.errMessage = 'An error occurred while saving note.';
+          this.errMessage = err.message;
         }
       );
       this.note = new Note();
